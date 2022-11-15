@@ -1,0 +1,18 @@
+#!/bin/bash
+
+cd "$(dirname "$0")"
+
+[ -e ../yome.db ] && rm ../yome.db \
+    && python ./create-tables \
+    && python ../sources/ecocyc/load \
+    && python ../sources/ecogene/load \
+    && python ../sources/uniprot/load \
+    && python ../sources/refseq/load \
+    && python ../sources/regulondb/load \
+    && python ../sources/ecolime/load \
+    && python ../sources/manual/load \
+    && ./load-yome \
+    && ./export-supp-tables \
+    && ./export-no-information \
+    && ./export-common-words \
+    && ./export-transporters

@@ -7,6 +7,17 @@ defines the 35% of Escherichia coli genes that lack experimental evidence of
 function*, Nucleic Acids Research, Volume 47, Issue 5, 18 March 2019, Pages 
 2446–2454, https://doi.org/10.1093/nar/gkz030
 
+# Re-running with Conda
+Install conda or mamba then run this script
+```bash
+git clone git@github.com:matinnuhamunada/y-ome.git
+cd y-ome
+mamba env create -f env.yml
+```
+Load the database by running
+```bash
+bin/load-db2
+```
 # Generating a y-ome
 
 This repository includes a SQLite database (`yome.db`), scripts for populating
