@@ -12,6 +12,8 @@ import gzip
 
 directory = realpath(dirname(__file__))
 
+print("loading regulondb")
+
 # Load data
 df = pd.read_table(join(directory, 'network_tf_gene.txt'), sep='\t',
                    header=None, skiprows=34, index_col=False,
@@ -79,6 +81,7 @@ final_df = pd.DataFrame(strong_evidence).merge(
 final_df['annotation_quality'] = 'high'
 
 # Load knowledgebase
+print("Connecting to SQLite knowledge base...")
 session = Session()
 load_knowledgebase(session, final_df, 'RegulonDB',
                    locus_id_column='locus_tag',

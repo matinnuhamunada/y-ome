@@ -14,6 +14,8 @@ import gzip
 
 directory = realpath(dirname(__file__))
 
+print("loading refseq")
+
 # Read genbank file
 with gzip.open(join(directory, 'NC_000913.3.gb.gz'), 'rt') as f:
     gb_file = SeqIO.read(f, 'gb')
@@ -43,6 +45,7 @@ df = pd.DataFrame(data_list)
 df['annotation_quality'] = 'tbd'
 
 # Load knowledgebase
+print("Connecting to SQLite knowledge base...")
 session = Session()
 load_knowledgebase(session, df, 'RefSeq',
                    locus_id_column='locus_tag',

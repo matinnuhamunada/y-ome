@@ -13,6 +13,8 @@ import re
 # Load knowledgebase into dataframe
 directory = realpath(dirname(__file__))
 
+print("loading uniprot")
+
 # Load knowledgebase into dataframe
 rename = {
     'Entry': 'upid',
@@ -82,6 +84,7 @@ for keyword in low_keywords_function:
 # df.loc[~df.ec_number.isnull(), 'annotation_quality'] = 'high'
 
 # Import knowledgebase
+print("Connecting to SQLite knowledge base...")
 session = Session()
 load_knowledgebase(session, df, 'UniProt',
                    locus_id_column='locus_tag',

@@ -12,6 +12,8 @@ import gzip
 
 directory = realpath(dirname(__file__))
 
+print("loading ecocyc")
+
 # Create dataframe from knowledgebase
 with gzip.open(join(directory, 'results.json.gz'), 'rt') as f:
     results = json.load(f)
@@ -123,6 +125,7 @@ df.is_phantom_gene = df.is_phantom_gene.map(bool_to_str)
 df.is_insertion_element = df.is_insertion_element.map(bool_to_str)
 
 # Load knowledgebase
+print("Connecting to SQLite knowledge base...")
 session = Session()
 load_knowledgebase(session, df, 'EcoCyc',
                    locus_id_column='locus_tag',

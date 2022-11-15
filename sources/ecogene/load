@@ -9,6 +9,8 @@ from os.path import dirname, realpath, join
 
 directory = realpath(dirname(__file__))
 
+print("loading ecogene")
+
 # Load knowledgebase into dataframe
 rename = {
    'EG': 'ecogene_id',
@@ -61,6 +63,7 @@ df['is_pseudogene'] = df.apply(is_pseudogene_cat, axis=1)
 df.loc[df.is_pseudogene == 't', 'annotation_quality'] = 'excluded'
 
 # Import knowledgebase
+print("Connecting to SQLite knowledge base...")
 session = Session()
 load_knowledgebase(session, df, 'EcoGene',
                    locus_id_column='locus_tag',

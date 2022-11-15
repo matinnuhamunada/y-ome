@@ -1,6 +1,9 @@
 #!/bin/bash
+set -e
 
 cd "$(dirname "$0")"
+
+echo "Loading database..."
 
 [ -e ../yome.db ] && rm ../yome.db \
     && python ./create-tables \
@@ -16,3 +19,5 @@ cd "$(dirname "$0")"
     && ./export-no-information \
     && ./export-common-words \
     && ./export-transporters
+
+echo "All loaded"

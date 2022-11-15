@@ -8,16 +8,31 @@ function*, Nucleic Acids Research, Volume 47, Issue 5, 18 March 2019, Pages
 2446–2454, https://doi.org/10.1093/nar/gkz030
 
 # Re-running with Conda
-Install conda or mamba then run this script
+- Install [conda](https://docs.conda.io/en/latest/miniconda.html) or mamba (optional):
+```bash
+# installing mamba
+conda install -n base -c conda-forge mamba
+```
+
+- Then grab a clone and install the packages:
 ```bash
 git clone git@github.com:matinnuhamunada/y-ome.git
 cd y-ome
 mamba env create -f env.yml
 ```
-Load the database by running
+
+- Load the database by running
 ```bash
+conda activate yome
 bin/load-db2
 ```
+>PS: You might need to install other LP solver, this come with gurobi free trial
+
+- Run Jupyter
+```
+jupyter lab
+```
+
 # Generating a y-ome
 
 This repository includes a SQLite database (`yome.db`), scripts for populating

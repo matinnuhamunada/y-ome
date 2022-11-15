@@ -10,9 +10,12 @@ import json
 from os.path import dirname, realpath, join
 import re
 
+print("loading manual")
+
 directory = realpath(dirname(__file__))
 df = pd.read_table(join(directory, 'manual.tsv'), sep='\t', header=0)
 
+print("Connecting to SQLite knowledge base...")
 session = Session()
 load_knowledgebase(session, df, 'Manual',
                    locus_id_column='locus_tag',
