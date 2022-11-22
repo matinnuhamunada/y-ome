@@ -14,10 +14,10 @@ echo "Loading database..."
     && python ../sources/regulondb/load \
     && python ../sources/ecolime/load \
     && python ../sources/manual/load \
-    && ./load-yome \
-    && ./export-supp-tables \
-    && ./export-no-information \
-    && ./export-common-words \
-    && ./export-transporters
+    && python ./load-yome \
+    && python ./export-supp-tables \
+    && python ./export-no-information \
+    && python ./export-common-words \
+    && python ./export-transporters
 
 echo "All loaded"

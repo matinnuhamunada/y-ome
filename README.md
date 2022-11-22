@@ -18,7 +18,7 @@ conda install -n base -c conda-forge mamba
 ```bash
 git clone git@github.com:matinnuhamunada/y-ome.git
 cd y-ome
-mamba env create -f env.yml
+mamba env create -f env.yaml
 ```
 
 - Load the database by running
