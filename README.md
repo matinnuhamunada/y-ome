@@ -30,7 +30,7 @@ bin/load-db2
 
 - Run Jupyter
 ```
-jupyter lab
+jupyter notebook
 ```
 
 # Generating a y-ome
